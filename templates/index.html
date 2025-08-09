@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome</title>
+</head>
+<body>
+    <h2>Welcome!</h2>
+    <p>You are logged in via OIDC.</p>
+    {% if session.get('user') %}
+        <h3>User Profile:</h3>
+        <pre>{{ session['user'] | tojson(indent=4) }}</pre>
+    {% endif %}
+    <a href="{{ url_for('logout') }}">Logout</a>
+</body>
+</html>
